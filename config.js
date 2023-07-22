@@ -13,6 +13,6 @@ export const WHITELISTED_IPS = [
 export const MODERATION = false; // Moderation mode
 export let COOKIE = process.env.COOKIE || "Your cookie here";
 export let BROWSER = process.env.BROWSER || "edge";
-export let WEBDRIVERMODE = process.env.DRIVERMODE == "true" || true;
+export let WEBDRIVERMODE = process.env.DRIVERMODE == "true" || false;
 export let JBWAITING = process.env.JBWAITING || 5;
 export let RESULTWAITING = process.env.RESULTWAITING || 12;

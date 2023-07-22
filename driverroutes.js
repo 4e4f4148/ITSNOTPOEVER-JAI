@@ -176,6 +176,7 @@ async function sagedriverCompletion(req, res) {
     lastmsg = lastmsg.replaceAll("<em>", '*')
     lastmsg = lastmsg.replaceAll("</em>", '*')
     lastmsg = lastmsg.replaceAll("<p>", '')
+    lastmsg = lastmsg.replaceAll("<br>", '')
     lastmsg = lastmsg.replaceAll("</p>", '')
     lastmsg = lastmsg.replaceAll('<a node="[object Object]" class="MarkdownLink_linkifiedLink__KxC9G">', '')
     lastmsg = lastmsg.replaceAll("</a>", '')
