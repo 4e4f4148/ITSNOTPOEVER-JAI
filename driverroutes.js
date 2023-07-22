@@ -16,6 +16,7 @@ console.log(WEBDRIVERMODE);
 var driver;
 
 if (BROWSER === "firefox") driver = new Builder().forBrowser("firefox").build();
+else if (BROWSER === 'chrome') driver = new Builder().forBrowser("chrome").build();
 else {
   var service = new edge.ServiceBuilder().setPort(55555).build();
   var options = new edge.Options();
@@ -158,13 +159,13 @@ async function sagedriverCompletion(req, res) {
     let lastmsg = ''
     let src, newsrc = ''
     while(true){
+      await driver.sleep(2000)
       newsrc = await driver.getPageSource();
       if(src === newsrc){
         break
       }
       else
       src = newsrc
-      driver.sleep(1000)
     }
     let root = htmlparser.parse(src);
     let out = root.querySelectorAll(".Markdown_markdownContainer__UyYrv");
