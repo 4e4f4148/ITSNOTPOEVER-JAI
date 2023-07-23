@@ -11,8 +11,8 @@ import {
 } from "./config.js";
 
 // configure browser options ...
-console.log(COOKIE);
-console.log(WEBDRIVERMODE);
+// console.log(COOKIE);
+// console.log(WEBDRIVERMODE);
 var driver;
 
 if (BROWSER === "firefox") driver = new Builder().forBrowser("firefox").build();
@@ -58,10 +58,10 @@ async function test(req, res) {
 }
 
 async function convertPOEtoOAI(messages, maxtoken) {
-  console.log(`before split = ${messages}`);
+  // console.log(`before split = ${messages}`);
   let messageout = messages;
   if (messages.includes(":")) messageout = messages.split(":").splice(1);
-  console.log(`after split = ${messageout}`);
+  // console.log(`after split = ${messageout}`);
   let newresponse = {
     id: "999999",
     object: "chat.completion",
@@ -83,8 +83,8 @@ async function convertPOEtoOAI(messages, maxtoken) {
       total_tokens: maxtoken,
     },
   };
-  console.log(`messageout : ${messageout}`);
-  console.log(`newres : ${newresponse}`);
+  // console.log(`messageout : ${messageout}`);
+  // console.log(`newres : ${newresponse}`);
   return newresponse;
 }
 
@@ -143,8 +143,8 @@ async function convertOAItoPOE(messages) {
     await textfield.sendKeys(Key.chord(Key.SHIFT, Key.ENTER));
   }
   await textfield.sendKeys(Key.ENTER)
-  console.log(`newprompt = ${newprompt}`);
-  console.log("sending content");
+  // console.log(`newprompt = ${newprompt}`);
+  // console.log("sending content");
   await driver.sleep(RESULTWAITING * 1000)
   return newprompt;
 }

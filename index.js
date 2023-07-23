@@ -6,11 +6,13 @@ import { corsMiddleware, rateLimitMiddleware } from "./middlewares.js";
 import { DEBUG, SERVER_PORT, WEBDRIVERMODE } from "./config.js";
 import { tunnel } from "cloudflared";
 
-let app = express();
 
 process.on("uncaughtException", function (err) {
   if (DEBUG) console.error(`Caught exception: ${err}`);
 });
+
+
+let app = express();
 
 // Middlewares
 app.use(corsMiddleware);
@@ -45,6 +47,7 @@ app.get("/v2/driver/sage/", async function (req, res) {
   return res.status(200).send({
     status: true,
     port: SERVER_PORT,
+    type: "JAI"
   });
 });
 
